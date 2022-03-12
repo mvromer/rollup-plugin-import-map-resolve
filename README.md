@@ -1,3 +1,3 @@
-# rollup-plugin-resolve-import-map
+# rollup-plugin-import-map-resolve
 
-Transform import specifiers using import maps.
+Resolve import specifiers against import maps.

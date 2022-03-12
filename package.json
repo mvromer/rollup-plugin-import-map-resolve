@@ -1,7 +1,7 @@
 {
-  "name": "rollup-plugin-resolve-import-map",
+  "name": "rollup-plugin-import-map-resolve",
   "version": "0.1.0",
-  "description": "Transform import specifiers using import maps.",
+  "description": "Resolve import specifiers against import maps.",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {

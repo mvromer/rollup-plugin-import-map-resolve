@@ -4,17 +4,17 @@ import { parse, resolve } from '@import-maps/resolve';
 import type { ImportMap } from '@import-maps/resolve';
 import type { PluginImpl } from 'rollup';
 
-interface ResolveImportMapOptions {
+interface ImportMapResolveOptions {
   baseUrl: string;
   importMap: ImportMap;
 }
 
-const defaultOptions: ResolveImportMapOptions = {
+const defaultOptions: ImportMapResolveOptions = {
   baseUrl: '',
   importMap: {}
 };
 
-const resolveImportMap: PluginImpl<ResolveImportMapOptions> = (userOptions) => {
+const importMapResolve: PluginImpl<ImportMapResolveOptions> = (userOptions) => {
   const options = { ...defaultOptions, ...userOptions };
 
   if (!options.baseUrl) {
@@ -25,7 +25,7 @@ const resolveImportMap: PluginImpl<ResolveImportMapOptions> = (userOptions) => {
   const importMap = parse(options.importMap, baseUrl);
 
   return {
-    name: 'resolve-import-map',
+    name: 'import-map-resolve',
 
     async resolveId(source, importer) {
       console.log(source, importer);
@@ -34,4 +34,4 @@ const resolveImportMap: PluginImpl<ResolveImportMapOptions> = (userOptions) => {
   };
 };
 
-export default resolveImportMap;
+export default importMapResolve;
