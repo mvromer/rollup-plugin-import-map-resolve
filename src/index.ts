@@ -14,7 +14,9 @@ const defaultOptions: ResolveImportMapOptions = {
   importMap: {}
 };
 
-const resolveImportMap: PluginImpl<ResolveImportMapOptions> = (options = defaultOptions) => {
+const resolveImportMap: PluginImpl<ResolveImportMapOptions> = (userOptions) => {
+  const options = { ...defaultOptions, ...userOptions };
+
   if (!options.baseUrl) {
     throw new Error('Base URL must be given');
   }
