@@ -76,7 +76,7 @@ const importMapResolve: PluginImpl<ImportMapResolveOptions> = (options) => {
       const scriptUrl = importer ? convertToUrl(importer) : baseUrl;
       const { resolvedImport, matched } = resolve(source, importMap, scriptUrl);
 
-      console.log('source', source, 'importer', importer, 'resolvedImport', resolvedImport?.href, 'matched', matched);
+      // console.log('source', source, 'importer', importer, 'resolvedImport', resolvedImport?.href, 'matched', matched);
 
       return matched
         ? { id: resolvedImport.href, external: true }
