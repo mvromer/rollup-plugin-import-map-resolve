@@ -2,17 +2,29 @@
   "name": "rollup-plugin-import-map-resolve",
   "version": "0.1.0",
   "description": "Resolve import specifiers against import maps.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvromer/rollup-plugin-import-map-resolve.git"
   },
   "keywords": [
     "rollup-plugin"
   ],
   "author": "Michael Romer",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvromer/rollup-plugin-import-map-resolve/issues"
+  },
+  "homepage": "https://github.com/mvromer/rollup-plugin-import-map-resolve#readme",
   "devDependencies": {
     "@types/node": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
