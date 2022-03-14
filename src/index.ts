@@ -9,9 +9,10 @@ interface ImportMapResolveOptions {
   /**
    * Base URL used when resolving any relative-URL-like address in the import map. The "address" is
    * the right-hand side of a mapping given in an import map. If a string is given, then it will
-   * first be parsed to see if it is a valid URL. If it is, then it is used as is. Otherwise, it is
-   * assumed to be either an absolute file system path a path relative to the current working
-   * directory. If not given, defaults to the current working directory.
+   * first be parsed to see if it is a valid URL. If it is, then it is used as is. Otherwise, the
+   * given base URL is assumed to be either an absolute file system path or a path relative to the
+   * current working directory. The file system path in either case is converted to a file URL. If
+   * no base URL is given, then it defaults to the file URL of the current working directory.
    */
   baseUrl?: string | URL;
 
@@ -36,7 +37,7 @@ function normalizeBaseUrl(baseUrl: string | URL) {
     return new URL(baseUrl);
   }
   catch {
-    // Do nothing. Assume it's some sort of relative file system path.
+    // Assume it's some sort of relative file system path.
     return pathToFileURL(path.posix.join(process.cwd(), baseUrl));
   }
 }
