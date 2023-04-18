@@ -79,7 +79,7 @@ const importMapResolve: PluginImpl<ImportMapResolveOptions> = (options) => {
       // console.log('source', source, 'importer', importer, 'resolvedImport', resolvedImport?.href, 'matched', matched);
 
       return matched
-        ? { id: resolvedImport.href, external: true }
+        ? { id: resolvedImport.href }
         : null;
     }
   };
